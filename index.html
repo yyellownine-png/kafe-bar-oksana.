@@ -1,0 +1,1124 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#263f32">
+
+    <title>Kafe-Bar Oksana — Смак, який створює атмосферу</title>
+
+    <meta name="description" content="Kafe-Bar Oksana — демонстраційний сайт кафе-бару в Золочеві.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'DM Sans', sans-serif;
+            background: #f5ebdd;
+            color: #263f32;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        /* HEADER */
+
+        .site-header {
+            height: 88px;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fffaf2;
+            border-bottom: 1px solid #e8ddce;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            border: 0;
+            background: none;
+            color: #263f32;
+        }
+
+        .brand-symbol {
+            font-family: 'Playfair Display', serif;
+            font-size: 43px;
+            font-style: italic;
+            color: #e87542;
+        }
+
+        .brand-name {
+            text-align: left;
+            font-size: 11px;
+            letter-spacing: 4px;
+            font-weight: 800;
+            line-height: 1.8;
+        }
+
+        .brand-name span {
+            display: block;
+            color: #e87542;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 27px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            border: 0;
+            background: transparent;
+            color: #263f32;
+            font-size: 12px;
+            font-weight: 600;
+            transition: .25s;
+            padding: 12px 0;
+        }
+
+        .nav-btn:hover,
+        .nav-btn.active {
+            color: #e87542;
+        }
+
+        .nav-btn.active {
+            border-bottom: 2px solid #e87542;
+        }
+
+        .header-action {
+            border: 1px solid #e87542;
+            background: #e87542;
+            color: white;
+            padding: 14px 23px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: .3s;
+        }
+
+        .header-action:hover {
+            background: #263f32;
+            border-color: #263f32;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: 0;
+            font-size: 27px;
+            color: #263f32;
+        }
+
+        /* PAGE SYSTEM */
+
+        .page-section {
+            display: none;
+            min-height: calc(100vh - 88px);
+            animation: pageAppear .55s ease;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes pageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            width: min(1160px, 86%);
+            margin: auto;
+        }
+
+        .section-label {
+            color: #e87542;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1.12;
+            font-weight: 500;
+            margin: 15px 0 20px;
+        }
+
+        .section-title em {
+            color: #e87542;
+        }
+
+        .section-description {
+            color: #766f62;
+            line-height: 1.9;
+            max-width: 600px;
+            font-size: 14px;
+        }
+
+        /* HOME */
+
+        .hero {
+            min-height: 690px;
+            height: calc(100vh - 88px);
+            max-height: 850px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg, rgba(17,29,22,.82), rgba(17,29,22,.12)),
+                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=90')
+                center/cover;
+            color: white;
+        }
+
+        .hero-content {
+            width: min(1160px, 86%);
+            margin: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            color: #ffc18d;
+            font-size: 11px;
+            letter-spacing: 5px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            font-size: clamp(55px, 7.5vw, 105px);
+            line-height: 1.04;
+            max-width: 800px;
+            margin: 27px 0;
+        }
+
+        .hero h1 em {
+            color: #ffbd7d;
+        }
+
+        .hero-description {
+            max-width: 410px;
+            line-height: 1.8;
+            font-size: 14px;
+            color: #eee8df;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 13px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 17px 27px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid #e87542;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: #e87542;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #263f32;
+            border-color: #263f32;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border-color: rgba(255,255,255,.7);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #263f32;
+        }
+
+        .hero-bottom {
+            position: absolute;
+            bottom: 35px;
+            left: 7%;
+            right: 7%;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,.3);
+            padding-top: 17px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #f2d4b4;
+        }
+
+        .home-intro {
+            padding: 110px 0;
+            text-align: center;
+        }
+
+        .home-intro .section-title {
+            max-width: 750px;
+            margin: 20px auto;
+        }
+
+        .home-intro .section-description {
+            margin: auto;
+        }
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 55px;
+        }
+
+        .quick-card {
+            text-align: left;
+            padding: 35px;
+            background: #fffaf2;
+            border: 1px solid #e8ddce;
+            transition: .3s;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-8px);
+            border-color: #e87542;
+        }
+
+        .quick-card .number {
+            color: #e87542;
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
+
+        .quick-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        .quick-card p {
+            color: #766f62;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .quick-card button {
+            border: 0;
+            background: none;
+            color: #e87542;
+            font-weight: 700;
+            padding: 10px 0;
+        }
+
+        /* ABOUT */
+
+        .about-section {
+            padding: 110px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 75px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 480px;
+            background:
+                url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85')
+                center/cover;
+        }
+
+        .about-text p {
+            color: #766f62;
+            line-height: 1.9;
+            font-size: 14px;
+        }
+
+        .about-highlight {
+            margin-top: 30px;
+            padding: 23px;
+            background: #263f32;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 21px;
+        }
+
+        /* MENU */
+
+        .menu-section {
+            padding: 100px 0;
+        }
+
+        .menu-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: #fffaf2;
+            border: 1px solid #e8ddce;
+            overflow: hidden;
+            transition: .3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(38,63,50,.12);
+        }
+
+        .menu-photo {
+            height: 235px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .photo-one {
+            background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=85');
+        }
+
+        .photo-two {
+            background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=85');
+        }
+
+        .photo-three {
+            background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=85');
+        }
+
+        .menu-card-content {
+            padding: 25px;
+        }
+
+        .menu-card-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .menu-card-content p {
+            color: #766f62;
+            line-height: 1.7;
+            font-size: 13px;
+        }
+
+        .demo-label {
+            display: inline-block;
+            background: #f7e0d2;
+            color: #a64f2e;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 7px 10px;
+            margin-top: 10px;
+        }
+
+        /* ATMOSPHERE */
+
+        .atmosphere-section {
+            padding: 100px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            grid-template-rows: 260px 260px;
+            gap: 15px;
+            margin-top: 45px;
+        }
+
+        .gallery-photo {
+            background-size: cover;
+            background-position: center;
+            border: 4px solid #fffaf2;
+        }
+
+        .gallery-photo:first-child {
+            grid-row: span 2;
+        }
+
+        .gallery-one {
+            background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85');
+        }
+
+        .gallery-two {
+            background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=85');
+        }
+
+        .gallery-three {
+            background-image: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=85');
+        }
+
+        .gallery-four {
+            background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=85');
+        }
+
+        .gallery-five {
+            background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=85');
+        }
+
+        /* REVIEWS */
+
+        .reviews-section {
+            padding: 110px 0;
+            background: #263f32;
+            color: #fffaf2;
+        }
+
+        .reviews-section .section-title em {
+            color: #ffbd7d;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            padding: 30px;
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.15);
+        }
+
+        .review-stars {
+            color: #ffc16d;
+            letter-spacing: 4px;
+        }
+
+        .review-card p {
+            color: #e0d8cb;
+            line-height: 1.8;
+            font-size: 13px;
+        }
+
+        .review-card strong {
+            color: #ffbd7d;
+            font-size: 12px;
+        }
+
+        /* CONTACTS */
+
+        .contacts-section {
+            padding: 100px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 45px;
+        }
+
+        .contact-card {
+            background: #fffaf2;
+            border: 1px solid #e8ddce;
+            padding: 30px;
+        }
+
+        .contact-card span {
+            color: #e87542;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        .contact-card p {
+            color: #766f62;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .contact-card a {
+            color: #d76538;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 350px;
+            border: 0;
+            margin-top: 30px;
+            background: #e8ddce;
+        }
+
+        /* FOOTER */
+
+        .site-footer {
+            background: #1c3026;
+            color: #fffaf2;
+            padding: 40px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .site-footer p {
+            font-size: 11px;
+            color: #c9c0b2;
+            line-height: 1.7;
+        }
+
+        .demo-disclaimer {
+            background: #f9e4d7;
+            color: #88452b;
+            padding: 13px 20px;
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.7;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 900px) {
+            .main-nav {
+                gap: 12px;
+            }
+
+            .nav-btn {
+                font-size: 10px;
+            }
+
+            .header-action {
+                display: none;
+            }
+
+            .quick-links,
+            .menu-grid,
+            .review-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                gap: 30px;
+            }
+        }
+
+        @media(max-width: 650px) {
+            .site-header {
+                height: 75px;
+                padding: 0 5%;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                right: 0;
+                background: #fffaf2;
+                padding: 20px 6%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 4px;
+                box-shadow: 0 12px 20px rgba(0,0,0,.08);
+            }
+
+            .main-nav.open {
+                display: flex;
+            }
+
+            .nav-btn {
+                text-align: left;
+                padding: 14px;
+                font-size: 13px;
+                border-bottom: 1px solid #eee3d5;
+            }
+
+            .hero {
+                height: 690px;
+                min-height: 620px;
+            }
+
+            .hero h1 {
+                font-size: 54px;
+            }
+
+            .hero-bottom {
+                font-size: 8px;
+            }
+
+            .quick-links,
+            .menu-grid,
+            .review-grid,
+            .contact-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(3, 180px);
+            }
+
+            .gallery-photo:first-child {
+                grid-row: span 2;
+            }
+
+            .about-image {
+                min-height: 300px;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            .site-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="demo-disclaimer">
+        DEMO VERSION · Демонстраційний сайт. Інформація, меню, фотографії та відгуки є прикладами, а не підтвердженими даними закладу.
+    </div>
+
+    <!-- HEADER -->
+
+    <header class="site-header">
+
+        <button class="brand" data-page="home" aria-label="На головну">
+            <span class="brand-symbol">O.</span>
+            <span class="brand-name">
+                KAFE-BAR
+                <span>OKSANA</span>
+            </span>
+        </button>
+
+        <nav class="main-nav" id="navigation">
+            <button class="nav-btn active" data-page="home">Головна</button>
+            <button class="nav-btn" data-page="about">Про нас</button>
+            <button class="nav-btn" data-page="menu">Меню</button>
+            <button class="nav-btn" data-page="atmosphere">Атмосфера</button>
+            <button class="nav-btn" data-page="reviews">Відгуки</button>
+            <button class="nav-btn" data-page="contacts">Контакти</button>
+        </nav>
+
+        <button class="header-action" data-page="menu">
+            НАШЕ МЕНЮ ↗
+        </button>
+
+        <button class="mobile-toggle" id="menuToggle" aria-label="Відкрити меню">
+            ☰
+        </button>
+
+    </header>
+
+    <main>
+
+        <!-- HOME -->
+
+        <section class="page-section active" id="home">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <div class="hero-tag">
+                        KAFE-BAR · ZOLOCHIV
+                    </div>
+
+                    <h1>
+                        Смак, який<br>
+                        створює<br>
+                        <em>атмосферу.</em>
+                    </h1>
+
+                    <p class="hero-description">
+                        Місце, де зустрічаються затишок,
+                        гарний настрій та любов до смачної їжі.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <button class="btn-primary" data-page="menu">
+                            ПЕРЕГЛЯНУТИ МЕНЮ ↗
+                        </button>
+
+                        <button class="btn-secondary" data-page="about">
+                            ПРО ЗАКЛАД
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="hero-bottom">
+                    <span>ЗОЛОЧІВ · УКРАЇНА</span>
+                    <span>ВАШІ МОМЕНТИ ПОЧИНАЮТЬСЯ ТУТ</span>
+                </div>
+
+            </div>
+
+            <div class="home-intro container">
+
+                <span class="section-label">WELCOME TO OKSANA</span>
+
+                <h2 class="section-title">
+                    Більше, ніж просто<br>
+                    <em>кафе-бар.</em>
+                </h2>
+
+                <p class="section-description">
+                    Простір для зустрічей, приємних розмов,
+                    відпочинку та нових вражень.
+                    Відкрийте для себе атмосферу Kafe-Bar Oksana.
+                </p>
+
+                <div class="quick-links">
+
+                    <div class="quick-card">
+                        <span class="number">01 / FOOD</span>
+                        <h3>Смачне меню</h3>
+                        <p>Відкрийте розділ меню та ознайомтеся з демонстраційними прикладами страв.</p>
+                        <button data-page="menu">Переглянути →</button>
+                    </div>
+
+                    <div class="quick-card">
+                        <span class="number">02 / PLACE</span>
+                        <h3>Наша атмосфера</h3>
+                        <p>Зазирніть у світ затишку, деталей та приємних моментів.</p>
+                        <button data-page="atmosphere">Переглянути →</button>
+                    </div>
+
+                    <div class="quick-card">
+                        <span class="number">03 / CONTACT</span>
+                        <h3>Знайдіть нас</h3>
+                        <p>Перейдіть до контактів та інформації про розташування.</p>
+                        <button data-page="contacts">Контакти →</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ABOUT -->
+
+        <section class="page-section" id="about">
+
+            <div class="about-section container">
+
+                <div class="about-grid">
+
+                    <div class="about-image"></div>
+
+                    <div class="about-text">
+
+                        <span class="section-label">OUR STORY</span>
+
+                        <h2 class="section-title">
+                            Місце для<br>
+                            <em>особливих моментів.</em>
+                        </h2>
+
+                        <p>
+                            Kafe-Bar Oksana — назва закладу,
+                            навколо якої створена ця демонстраційна
+                            концепція сучасного ресторанного сайту.
+                        </p>
+
+                        <p>
+                            Тут можна буде розповісти справжню
+                            історію закладу, його концепцію,
+                            особливості кухні та команду.
+                        </p>
+
+                        <div class="about-highlight">
+                            «Справжня атмосфера починається з деталей».
+                        </div>
+
+                        <span class="demo-label">ДЕМОНСТРАЦІЙНИЙ ТЕКСТ</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- MENU -->
+
+        <section class="page-section" id="menu">
+
+            <div class="menu-section container">
+
+                <div class="menu-heading">
+
+                    <span class="section-label">TASTE OF OKSANA</span>
+
+                    <h2 class="section-title">
+                        Наше <em>меню.</em>
+                    </h2>
+
+                    <p class="section-description" style="margin:auto">
+                        Приклади оформлення меню. Після погодження
+                        замінимо їх на справжні страви, фотографії
+                        та ціни закладу.
+                    </p>
+
+                </div>
+
+                <div class="menu-grid">
+
+                    <article class="menu-card">
+                        <div class="menu-photo photo-one"></div>
+                        <div class="menu-card-content">
+                            <span class="section-label">CATEGORY 01</span>
+                            <h3>Авторські страви</h3>
+                            <p>Тут будуть справжні страви закладу, їхні описи та вартість.</p>
+                            <span class="demo-label">ПРИКЛАД · НЕ РЕАЛЬНЕ МЕНЮ</span>
+                        </div>
+                    </article>
+
+                    <article class="menu-card">
+                        <div class="menu-photo photo-two"></div>
+                        <div class="menu-card-content">
+                            <span class="section-label">CATEGORY 02</span>
+                            <h3>Свіжі салати</h3>
+                            <p>Фотографії, склад та актуальні ціни додамо після погодження.</p>
+                            <span class="demo-label">ПРИКЛАД · НЕ РЕАЛЬНЕ МЕНЮ</span>
+                        </div>
+                    </article>
+
+                    <article class="menu-card">
+                        <div class="menu-photo photo-three"></div>
+                        <div class="menu-card-content">
+                            <span class="section-label">CATEGORY 03</span>
+                            <h3>Напої та кава</h3>
+                            <p>Тут розмістимо справжній асортимент напоїв закладу.</p>
+                            <span class="demo-label">ПРИКЛАД · НЕ РЕАЛЬНЕ МЕНЮ</span>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ATMOSPHERE -->
+
+        <section class="page-section" id="atmosphere">
+
+            <div class="atmosphere-section container">
+
+                <span class="section-label">OUR ATMOSPHERE</span>
+
+                <h2 class="section-title">
+                    Моменти, які<br>
+                    <em>хочеться повторити.</em>
+                </h2>
+
+                <p class="section-description">
+                    Демонстраційна галерея. У фінальній версії
+                    будуть фотографії саме цього закладу.
+                </p>
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-photo gallery-one"></div>
+                    <div class="gallery-photo gallery-two"></div>
+                    <div class="gallery-photo gallery-three"></div>
+                    <div class="gallery-photo gallery-four"></div>
+                    <div class="gallery-photo gallery-five"></div>
+
+                </div>
+
+                <span class="demo-label">ФОТОГРАФІЇ ДЛЯ ДЕМОНСТРАЦІЇ</span>
+
+            </div>
+
+        </section>
+
+        <!-- REVIEWS -->
+
+        <section class="page-section" id="reviews">
+
+            <div class="reviews-section">
+
+                <div class="container">
+
+                    <span class="section-label">GUEST EXPERIENCE</span>
+
+                    <h2 class="section-title">
+                        Враження <em>гостей.</em>
+                    </h2>
+
+                    <p style="color:#ddd;line-height:1.8">
+                        У фінальній версії тут будуть справжні
+                        відгуки відвідувачів із дозволених
+                        публічних джерел.
+                    </p>
+
+                    <div class="review-grid">
+
+                        <article class="review-card">
+                            <div class="review-stars">★★★★★</div>
+                            <p>Тут буде місце для справжнього відгуку гостя.</p>
+                            <strong>ВІДГУК ДЛЯ ДЕМОНСТРАЦІЇ</strong>
+                        </article>
+
+                        <article class="review-card">
+                            <div class="review-stars">★★★★★</div>
+                            <p>Тут буде місце для справжнього відгуку гостя.</p>
+                            <strong>ВІДГУК ДЛЯ ДЕМОНСТРАЦІЇ</strong>
+                        </article>
+
+                        <article class="review-card">
+                            <div class="review-stars">★★★★★</div>
+                            <p>Тут буде місце для справжнього відгуку гостя.</p>
+                            <strong>ВІДГУК ДЛЯ ДЕМОНСТРАЦІЇ</strong>
+                        </article>
+
+                    </div>
+
+                    <span class="demo-label">ВІДГУКИ НЕ Є СПРАВЖНІМИ</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CONTACTS -->
+
+        <section class="page-section" id="contacts">
+
+            <div class="contacts-section container">
+
+                <span class="section-label">FIND US</span>
+
+                <h2 class="section-title">
+                    Будемо раді<br>
+                    <em>вашому візиту.</em>
+                </h2>
+
+                <p class="section-description">
+                    Контактні дані нижче є демонстраційними.
+                    Точну інформацію перевіримо разом із власником.
+                </p>
+
+                <div class="contact-grid">
+
+                    <div class="contact-card">
+                        <span>01 / ADDRESS</span>
+                        <h3>Наша адреса</h3>
+                        <p>Золочів, Львівська область.<br>Точну адресу підтвердимо з власником.</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <span>02 / PHONE</span>
+                        <h3>Телефонуйте</h3>
+                        <p>Контактний номер буде додано після погодження.</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <span>03 / SCHEDULE</span>
+                        <h3>Графік роботи</h3>
+                        <p>Актуальні робочі дні та години уточнюються.</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <span>04 / SOCIAL</span>
+                        <h3>Ми онлайн</h3>
+                        <p>Посилання на офіційні соціальні мережі додамо після перевірки.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div>
+            <div class="brand-name">
+                KAFE-BAR
+                <span>OKSANA</span>
+            </div>
+
+            <p>Смак, який створює атмосферу.</p>
+        </div>
+
+        <p>
+            © <span id="currentYear"></span> Kafe-Bar Oksana.<br>
+            Демонстраційний проєкт.
+        </p>
+
+        <button class="btn-primary" data-page="home">
+            НА ГОЛОВНУ ↑
+        </button>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
